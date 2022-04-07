@@ -24,6 +24,14 @@ $message = "Hello Vue!";
 
 
 </div>
+  
+<div id="test2" class="m-3">
+  <p>Name: {{ name }}</p>
+  <input type="text" v-on:input="changeName">
+
+  <input type="text" v-on:keyup.enter="klavyeKullanimi">
+</div>
+
 
 <script>
   Vue.createApp({
@@ -46,6 +54,23 @@ $message = "Hello Vue!";
     alert("test")
   }
   */
+  
+  Vue.createApp({
+    data() {
+      return {
+       name: "omer"
+      }
+    },
+    methods : {
+      changeName: function(e) {
+        this.name = e.target.value;
+      },
+      klavyeKullanimi: function (e) {
+            console.log(e.target.value)
+        }
+    }
+  }).mount('#test2')
+
 
 </script>
 
