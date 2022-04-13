@@ -1,0 +1,40 @@
+const treeData = {
+  name: 'Tree test',
+  children: [
+    { name: 'aaaa' },
+    { name: 'bbbb' },
+    {
+      name: 'child folder',
+      children: [
+        {
+          name: 'child folder',
+          children: [{ name: 'aaaa' }, { name: 'bbbb' }]
+        },
+        { name: 'aaaa' },
+        { name: 'bbbb' },
+        {
+          name: 'child folder',
+          children: [{ name: 'aaaa' }, { name: 'bbbb' }]
+        }
+      ]
+    }
+  ]
+}
+
+createApp({
+  components: {
+    TreeItem
+  },
+  data() {
+    return {
+      treeData
+    }
+  }
+}).mount('#app')
+</script>
+
+<div id="app">
+  <ul>
+    <tree-item class="item" :model="treeData"></tree-item>
+  </ul>
+</div>
