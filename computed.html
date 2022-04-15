@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+<style>
+    .box {
+        background-color: #ccc;
+        display: inline-block;
+        margin-right: 5px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
+</style>
+
+<div id="colortest">
+        <div
+        @click="addClass = !addClass" 
+        :class="divClass" class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+           return { addClass : false }
+        },
+        computed : {
+          divClass : function() {
+            return {
+              red : this.addClass,
+              blue : !this.addClass
+            }
+          }
+        }
+    }).mount('#colortest')
+</script>
+
+</body>
+</html>
