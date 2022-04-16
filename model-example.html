@@ -11,6 +11,7 @@
 <style>
     .box {width: 200px; height: 200px; background-color: #ccc; display: inline-block; margin-right: 5px;}
     .black {background-color: black;}
+    .yellow {background-color: yellow;}
     .red {background-color: red;}
     .blue {background-color: blue;}
     .gray {background-color: gray;}
@@ -19,13 +20,26 @@
 <div id="boxModel">
     <div class="box" :class="color"></div>
     <div>
-        <input type="text" v-model="color">
+
+        <div v-if="color == 'yellow'" class="box red"></div>
+
+        <p v-if="show"> 
+             <input type="text" v-model="color">
+        </p>
+        <p v-else>
+             <input type="password" v-model="color">
+        </p>
+        <button @click="show = !show">Show / Hide</button>
     </div>
+
 </div>
 <script>
     Vue.createApp({
         data() {
-                return { color : "red" }
+                return { 
+                    color : "red",
+                    show: true
+                     }
         }
     }).mount('#boxModel')
 </script>
