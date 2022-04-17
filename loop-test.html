@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+
+<div id="loopTest">
+    <li v-for="(color, i) in colors">
+       {{ i }} - {{ color }}
+    </li>
+
+    <li v-for="a in 10">
+       {{ a }}
+    </li>
+
+
+    <div v-for="(color1,index) in colors" :key="color1">
+        <h3>{{color1}}</h3>
+        <p>{{index}}</p>
+    </div>
+
+</div>
+
+<hr>
+
+<div id="loopInLoop">
+    <div v-for="color2 in colors2">
+        <p v-for="(value,key,index) in color2">
+            <label>
+                <b>{{key}} : </b>
+            </label>
+            <span>
+                {{value}}
+            </span>
+        </p>
+    </div>
+</div>
+
+
+<script>
+    Vue.createApp({
+        data() {
+                return { 
+                    colors : ["color 1", "color 2", "color 3", "color 4"]
+                     }
+        }
+    }).mount('#loopTest')
+
+    Vue.createApp({
+        data() {
+                return { 
+                    colors2 : [
+                        { colorCode: "R", colorName: "red"},
+                        { colorCode: "B", colorName: "Black"},
+                        { colorCode: "G", colorName: "Green"},
+                        { colorCode: "Y", colorName: "Yellow"},
+                    ]
+                }
+        }
+    }).mount('#loopInLoop')
+</script>
+
+</body>
+</html>
