@@ -32,8 +32,23 @@
         <div class="box"></div>
         <div class="box"></div>
 </div>
+  
+  <div id="xxx">
+    <xxxx></xxxx>
+    <xxxx></xxxx>
+</div><
+  script>
+    Vue.component("xxxx", {
+        data: function () {
+            return {
+                title: "deneme",
+            };
+        },
+        template: "<p>Merhaba Dünya {{title}}</p>",
+    });new Vue({
+        el: "#xxx",
+    });
 
-<script>
     Vue.createApp({
         data() {
            return { addClass : false }
